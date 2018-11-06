@@ -1,0 +1,10 @@
+<%= for item <- @collection do %>
+<p><%= item.message %></p>
+<% end %>
+
+<%=if @metadata.before != nil do %>
+<%= link to: page_path(@conn, :index, cursor_before: @metadata.before), method: :get do %>später<% end %>
+<% end %> -
+<%=if @metadata.after != nil do %>
+<%= link to: page_path(@conn, :index, cursor_after: @metadata.after), method: :get do %>früher<% end %>
+<% end %>
